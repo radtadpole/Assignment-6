@@ -11,121 +11,131 @@
       <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
       
       <!--   Link to Google font-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
 
-    <style>
-        /* CSS code between the <style> tags */
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-        
-        /* (Popup Box Adjustments) Overrides the pop-up width slightly bigger min-width than the default Mapbox CSS*/
-         .mapboxgl-popup {
-            min-width: 625px;
-            /*add the css for the popup font here */
-            font-family: "Eagle Lake", serif;      
-        }
-        
-        
-        /* The CSS for the "Fly" buttons  */
-        .fly {
-            display: inline-block; /* displays over the map */
-            position: relative; /* displays over the map */
-            margin: 100px auto; 
-            width: 30%;  /* width of parent div */
-            padding: 10px;
-            border-style: solid;
-            border-color: oldlace;
-            border-radius: 6px; /* rounded corners */
-            font-size: 1em;
-            text-align: center;
-            font-weight: bold;
-            color: oldlace;
-            background: #434343;
-            cursor:pointer;
-            left: 5%;
-        }
-        
-        .fly:hover {
-                background: forestgreen;
-                letter-spacing: 1px;
-                -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-                -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-                box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-                transition: all 0.4s ease 0s;
-                }
+        <style>
+            /* CSS code between the <style> tags */
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+            
+            /* (Popup Box Adjustments) Overrides the pop-up width slightly bigger min-width than the default Mapbox CSS*/
+            .mapboxgl-popup {
+                min-width: 625px;
+                /*add the css for the popup font here */
+                font-family: "Eagle Lake", serif;      
+            }
+            
+            
+            /* The CSS for the "Fly" buttons  */
+            .fly {
+                display: inline-block; /* displays over the map */
+                position: relative; /* displays over the map */
+                margin: 100px auto; 
+                width: 30%;  /* width of parent div */
+                padding: 10px;
+                border-style: solid;
+                border-color: oldlace;
+                border-radius: 6px; /* rounded corners */
+                font-size: 1em;
+                text-align: center;
+                font-weight: bold;
+                color: oldlace;
+                background: #434343;
+                cursor:pointer;
+                left: 5%;
+            }
+          /* Fancy Button Color Change Stuff ^ */  
+            .fly:hover {
+                    background: forestgreen;
+                    letter-spacing: 1px;
+                    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+                    transition: all 0.4s ease 0s;
+            }
 
-        /* 'Next' Button Ajdustment */
-        .flyTo {
-            display: block; /* displays over the map */
-            position: relative; /* displays over the map */
-            margin: 950px auto; 
-            width: 35%;  /* width of parent div */
-            padding: 10px;
-            border-style: solid;
-            border-color: oldlace;
-            border-radius: 6px; /* rounded corners */
-            font-size: 1em;
-            text-align: center;
-            font-weight: bold;
-            color: oldlace;
-            background: #434343 ;
-            cursor:pointer;
-        }
-        
-        .flyTo:hover {
-                background: mediumslateblue;
-                letter-spacing: 1px;
-                -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-                -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-                box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-                transition: all 0.4s ease 0s;
-                }
+            /* 'Next' Button Ajdustment */
+            .flyTo {
+                display: block; /* displays over the map */
+                position: relative; /* displays over the map */
+                margin: 950px auto; 
+                width: 35%;  /* width of parent div */
+                padding: 10px;
+                border-style: solid;
+                border-color: oldlace;
+                border-radius: 6px; /* rounded corners */
+                font-size: 1em;
+                text-align: center;
+                font-weight: bold;
+                color: oldlace;
+                background: #434343 ;
+                cursor:pointer;
+            }
+            
+            /* Fancy Button Color Change Stuff ^ */ 
+            .flyTo:hover {
+                    background: mediumslateblue;
+                    letter-spacing: 1px;
+                    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+                    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+                    transition: all 0.4s ease 0s;
+            }
 
-        /* Insert the CSS for the image here */
+            /* Insert the CSS for the image here */
             .popupImage{
-                width:100%;
+                    width:100%;
             }
 
-        /* Insert the CSS for the button here */
+            /* Insert the CSS for the button here */
             button {
-                font-family: 'Eagle Lake', serif;
-                font-weight: 600;
+                    font-family: 'Eagle Lake', serif;
+                    font-weight: 600;
             }
 
-        /* Youtube Window Player Adjustment */
-            iframe {
-              width: 100%;
+            /* 'Source:' Font Change */
+            .source {
+                    font-family: 'Source Sans 3', sans-serif;
+                    font-weight: 600;
             }
-        /* Title Style */
-        .map-overlay {
-            position: absolute;
-            z-index: 2;
-            bottom: 0;
-            right: 0;
-            background: #434343;
-            margin: auto;
-            font-family: 'Eagle Lake', serif;
-            font-size: small;
-            color: oldlace;
-            border-radius: 7px;
-            text-align: center;
+
+            /* Youtube Window Player Adjustment */
+            iframe {
+                width: 100%;
+            }
+            /* Title Style */
+            .map-overlay {
+                position: absolute;
+                z-index: 2;
+                bottom: 0;
+                right: 0;
+                background: #434343;
+                margin: auto;
+                font-family: 'Eagle Lake', serif;
+                font-size: small;
+                color: oldlace;
+                border-radius: 7px;
+                text-align: center;
             }
 
             #features {
-            top: 0;
-            left: 0;
-            height: 85px;
-            margin-top: 10px;
-            width: 550px;
+                top: 0;
+                left: 0;
+                height: 85px;
+                margin-top: 10px;
+                width: 550px;
             }
 
-        /* 'Click Me' Prompt */
-            h1 {text-align: center;}
+            /* 'Click Me' Prompt */
+                h1 {text-align: center;}
 
-    </style>
+        </style>
   </head>
 
   <body>
@@ -190,19 +200,19 @@
               var popup_layer_click_me = new mapboxgl.Popup({
                  closeOnClick: false, anchor: 'top', minWidth:'300px', })
                     .setLngLat([-122.6788,45.5212], [-0.1534307, 51.501223], [-110.74524187568,44.706216445069])
-                    .setHTML('<h1> Click me </h1>')
+                    .setHTML('<h1> Click me! </h1>')
                     .addTo(map);
 
              var popup_layer_click_me = new mapboxgl.Popup({
                  closeOnClick: false, anchor: 'top', minWidth:'300px', })
                     .setLngLat([-0.1534307, 51.501223])
-                    .setHTML('<h1> Click me </h1>')
+                    .setHTML('<h1> Click me! </h1>')
                     .addTo(map);
 
             var popup_layer_click_me = new mapboxgl.Popup({
                  closeOnClick: false, anchor: 'top', minWidth:'300px', })
                     .setLngLat([-110.74524187568,44.706216445069])
-                    .setHTML('<h1> Click me </h1>')
+                    .setHTML('<h1> Click me! </h1>')
                     .addTo(map);
         
         /***  END POPUPS  ***/  
@@ -276,3 +286,4 @@
   </body>
 
 </html>
+
