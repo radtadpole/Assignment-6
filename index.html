@@ -13,12 +13,12 @@
       <!--   Link to Google font-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
-      
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Hina+Mincho&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
-    
+      <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+
     <style>
         /* CSS code between the <style> tags */
         body { margin:0; padding:0; }
@@ -28,7 +28,7 @@
          .mapboxgl-popup {
             min-width: 625px;
             /*add the css for the popup font here */
-            font-family: "BIZ UDMincho", serif;      
+            font-family: "Eagle Lake", serif;      
         }
         
         
@@ -52,7 +52,7 @@
         }
         
         .fly:hover {
-                background: mediumslateblue;
+                background: forestgreen;
                 letter-spacing: 1px;
                 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
                 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -94,13 +94,14 @@
 
         /* Insert the CSS for the button here */
             button {
-                font-family: 'BIZ UDMincho', serif;
+                font-family: 'Eagle Lake', serif;
                 font-weight: 600;
             }
 
-        /* Source Font Change */
-            source {
-              font-family: Sawarabi Mincho, serif;
+        /* 'Source:' Font Change */
+            .source {
+                font-family: 'Source Sans 3', sans-serif;
+                font-weight: 600;
             }
 
         /* Youtube Window Player Adjustment */
@@ -115,7 +116,8 @@
             right: 0;
             background: #434343;
             margin: auto;
-            font-family: 'BIZ UDMincho', serif;
+            font-family: 'Eagle Lake', serif;
+            font-size: small;
             color: oldlace;
             border-radius: 7px;
             text-align: center;
@@ -150,7 +152,7 @@
        <button class='fly' id='YellowstoneButton'>Jump to Yellowstone</button>
        
        <!-- 'Next' Button -->
-       <button class="flyTo" id="NextButton" >'Fly' Button</button>
+       <button class="flyTo" id="NextButton" >Fly to Markers</button>
 
     <script>
         // Insert the JavaScript within the <script> tags, within the body   
@@ -170,7 +172,7 @@
               // Popup for marker 1  
               var popup1_content = '<h2>Play the video to listen to Portland</h2><br>';
               popup1_content += '<iframe width="300px" height="300" src="https://www.youtube.com/embed/z1AdmS-LqyA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-              popup1_content += 'Source: Ian Lind, <a href="https://www.youtube.com/embed/z1AdmS-LqyA" target="_blank">YouTube</a>';
+              popup1_content += '<div style="font-size: 12px; color: #a9a9a9;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">Source: Ian Lind, <a href="https://www.youtube.com/embed/z1AdmS-LqyA" target="_blank">YouTube</a></div>';
           
               var popup1 = new mapboxgl.Popup({ minWidth:'300px' })
                   .setHTML(popup1_content);
@@ -178,7 +180,7 @@
               // Popup for marker 2  
               var popup2_content = '<h2>Press play to listen to London in 1928</h2><br>';
               popup2_content += '<iframe width="300%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/892653091&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/londonstreetnoises" title="London Street Noises" target="_blank" style="color: #cccccc; text-decoration: none;">London Street Noises</a> · <a href="https://soundcloud.com/londonstreetnoises/cromwell-1928" title="London Cromwell Road / Queen&#x27;s Gate in 1928" target="_blank" style="color: #cccccc; text-decoration: none;">London Cromwell Road / Queen&#x27;s Gate in 1928</a></div>';
-              popup2_content += 'Source: LondonStreetNoises.co.uk, <a href="https://soundcloud.com/londonstreetnoises" target="_blank"> SoundCloud </a>';
+              popup2_content += '<div style="font-size: 12px; color: #808080;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">Source: LondonStreetNoises.co.uk, <a href="https://soundcloud.com/londonstreetnoises" target="_blank"> SoundCloud </a></di>';
                     
               var popup2 = new mapboxgl.Popup({ minWidth:'300px' })
                   .setHTML(popup2_content);
@@ -188,12 +190,12 @@
               var popup3_content = '<h2>Press play to listen to a bison eating</h2><br>';
               popup3_content += '<audio controls><source src="sounds/yell-YELLBisonEating150313.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>';
               popup3_content += '<img class="popupImage" alt="Photo of a herd of bison standing along the side of the Gibbon River in the snow" src="https://www.nps.gov/yell/learn/photosmultimedia/images/ndh-yell-bison-gibbon_2.jpg?maxwidth=1300&maxheight=1300&autorotate=false">';
-              popup3_content +='Source: NPS/Jennifer Jerret, <a href="https://www.nps.gov/yell/learn/photosmultimedia/sounds-bisoneating.htm" target="_blank">NPS</a>';
+              popup3_content +='<div style="font-size: 12px; color: #808080;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;">Source: NPS/Jennifer Jerret, <a href="https://www.nps.gov/yell/learn/photosmultimedia/sounds-bisoneating.htm" target="_blank">NPS</a></div>';
                     
               var popup3 = new mapboxgl.Popup({ minWidth:'300px' })
                   .setHTML(popup3_content);
 
-
+              // Popup for 'Click Me!'
               var popup_layer_click_me = new mapboxgl.Popup({
                  closeOnClick: false, anchor: 'top', minWidth:'300px', })
                     .setLngLat([-122.6788,45.5212], [-0.1534307, 51.501223], [-110.74524187568,44.706216445069])
@@ -264,7 +266,7 @@
                               });
                       });
 
-                  // 'NextButton'
+                  // 'FlyButton'
                       var clickCounter = 1; // keep track of the number of times the user has clicked
                       var flyLocations = [[-0.1534307, 51.501223],[-122.6788,45.5212], [-110.74524187568,44.706216445069]];
                           
